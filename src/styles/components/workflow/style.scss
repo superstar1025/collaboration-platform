@@ -1,0 +1,333 @@
+/*! Rappid v2.2.0 - HTML5 Diagramming Framework - TRIAL VERSION
+
+Copyright (c) 2015 client IO
+
+ 2017-12-08 
+
+
+This Source Code Form is subject to the terms of the Rappid Trial License
+, v. 2.0. If a copy of the Rappid License was not distributed with this
+file, You can obtain one at http://jointjs.com/license/rappid_v2.txt
+ or from the Rappid archive as was distributed by client IO. See the LICENSE file.*/
+
+/*
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed/RobotoCondensed-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf');
+  font-weight: Normal;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf');
+  font-weight: Bold;
+}
+
+@font-face {
+  font-family: 'Averia Libre';
+  src: url('../assets/fonts/Averia_Libre/AveriaLibre-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Averia Libre';
+  src: url('../assets/fonts/Averia_Libre/AveriaLibre-Regular.ttf');
+  font-weight: Normal;
+}
+
+@font-face {
+  font-family: 'Averia Libre';
+  src: url('../assets/fonts/Averia_Libre/AveriaLibre-Bold.ttf');
+  font-weight: Bold;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('../assets/fonts/Alegreya_Sans/AlegreyaSans-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('../assets/fonts/Alegreya_Sans/AlegreyaSans-Regular.ttf');
+  font-weight: Normal;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('../assets/fonts/Alegreya_Sans/AlegreyaSans-Bold.ttf');
+  font-weight: Bold;
+}
+*/
+#rappid-container {
+  position: relative;
+  height: calc(100vh - 110px);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-top: -24px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.rappid-header {
+  position: relative;
+  width: 100%;
+  height: 60px;
+}
+
+.rappid-body {
+  position: relative;
+  height: 100%
+}
+
+/*  Paper  */
+.paper-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  left: 240px;
+  right: 0;
+}
+
+.field[data-field$="/fill"],
+.field[data-field$="/stroke"] {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+
+.joint-select-box.joint-color-palette .select-box-option:nth-child(2):not(.hover) {
+  border: inset;
+  border-width: 1px;
+}
+
+.joint-inspector-select-box-options {
+  width: 190px;
+}
+
+/*  Navigator  */
+.navigator-container {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 240px;
+}
+
+/*  Stencil  */
+.stencil-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100%;
+}
+
+.joint-stencil .joint-element[data-type="basic.Image"] text,
+.joint-stencil .joint-element[data-type="devs.Atomic"] .inPorts text,
+.joint-stencil .joint-element[data-type="devs.Atomic"] .outPorts text,
+.joint-stencil .joint-element[data-type="pn.Transition"] text,
+.joint-stencil .joint-element .joint-port text {
+  display: none;
+}
+
+.joint-stencil .joint-element.joint-type-uml rect,
+.joint-stencil .joint-element.joint-type-uml path {
+  stroke: #4a4d6e;
+}
+
+/*  Toolbar  */
+.toolbar-container {
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+.toolbar-container .joint-toolbar {
+  width: 100%;
+  height: 100%;
+}
+
+.toolbar-container label {
+  white-space: nowrap;
+}
+
+.toolbar-container button:not(:empty) {
+  padding: 0 4px;
+}
+
+.toolbar-container button.joint-widget[data-type="zoomIn"],
+.toolbar-container button.joint-widget[data-type="zoomOut"] {
+  display: none;
+}
+
+.joint-dialog.joint-lightbox .fg {
+  background-color: #F6F6F6;
+}
+
+.joint-navigator {
+  border: 1px solid gray;
+  opacity: 0.7;
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.link-tools .tool-options {
+  display: none;
+}
+
+.handles + label {
+  display: none;
+}
+
+.group .elements.joint-paper {
+  left: 10px;
+}
+
+.joint-halo[data-type="custom.RectEx"]{
+  .handles {
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    .handle {
+      &.nw,
+      &.ne,
+      &.n {
+        top: -7px;
+      }
+      &.sw,
+      &.se,
+      &.s {
+        bottom: -7px;
+      }
+      &.ne,
+      &.se,
+      &.e {
+        right: -7px;
+      }
+      &.nw,
+      &.sw,
+      &.w {
+        left: -7px;
+      }
+      &.n,
+      &.s {
+        left: 50%;
+      }
+      &.e {
+        top: calc(50% - 9px);
+      }
+      &.w {
+        top: 50%;
+      }
+    }
+  }
+}
+
+.joint-halo[data-type="custom.CircleEx"]{
+  .handles {
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    .handle {
+      &.nw,
+      &.sw {
+        left: 2px;
+      }
+      &.nw,
+      &.ne {
+        top: 2px;
+      }
+      &.ne,
+      &.se {
+        right: 2px;
+      }
+      &.sw,
+      &.se {
+        bottom: 2px;
+      }
+      &.n { top: -7px; }
+      &.s { bottom: -7px; }
+      &.w { left: -7px; }
+      
+      &.e {
+        right: -7px;
+        top: calc(50% - 9px);
+      }
+      &.w {
+        left: -7px;
+        top: 50%;
+      }
+      &.n {
+        top: -7px;
+        left: 50%;
+      }
+      &.s {
+        bottom: -7px;
+        left: 50%;
+      }
+    }
+  }
+}
+
+.joint-halo[data-type="custom.PathEx"]{
+  .handles {
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    .handle {
+      &.nw,
+      &.sw {
+        left: 2px;
+      }
+      &.nw,
+      &.ne {
+        top: 2px;
+      }
+      &.ne,
+      &.se {
+        right: 2px;
+      }
+      &.sw,
+      &.se {
+        bottom: 2px;
+      }
+      &.n { top: -7px; }
+      &.s { bottom: -7px; }
+      &.w { left: -7px; }
+      
+      &.e {
+        right: -7px;
+        top: calc(50% - 9px);
+      }
+      &.w {
+        left: -7px;
+        top: 50%;
+      }
+      &.n {
+        top: -7px;
+        left: 50%;
+      }
+      &.s {
+        bottom: -7px;
+        left: 50%;
+      }
+    }
+  }
+}

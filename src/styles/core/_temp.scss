@@ -1,0 +1,41 @@
+.pagination-datatables, .pagination {
+  li {
+    // sass-lint:disable-all
+    @extend .page-item;
+
+    a {
+      @extend .page-link;
+    }
+    // sass-lint:enable-all
+  }
+}
+
+.label-pill {
+  border-radius: 1rem !important;
+}
+
+// temp fix for Vue & React
+
+// Open state for the dropdown
+.open, .show {
+  // Remove the outline when :focus is triggered
+  > a {
+    outline: 0;
+  }
+}
+
+// navbar dropdown fix
+// sass-lint:disable-all
+.navbar .dropdown-toggle {
+  @extend .nav-link;
+
+  .img-avatar {
+    height: $navbar-height - 20px;
+    margin: 0 10px;
+  }
+}
+
+.card-block {
+  @extend .card-body;
+}
+// sass-lint:enable-all

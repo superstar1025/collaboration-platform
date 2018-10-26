@@ -1,0 +1,29 @@
+// Import all styles
+
+// Override Boostrap variables
+@import "bootstrap-variables";
+
+@import "./global/index"; // Global Variables
+
+// Import node modules
+@import "node_modules/bootstrap/scss/bootstrap"; // Bootstrap
+@import "node_modules/spinkit/scss/spinkit"; // Spinkit
+@import "node_modules/font-awesome/scss/font-awesome"; // Font Awesome
+@import "node_modules/simple-line-icons/scss/simple-line-icons"; // Simple Line Icons
+@import "node_modules/react-toastify/src/scss/main"; // Toastify
+@import "node_modules/react-select/scss/default"; // Select
+
+// Override core variables
+@import "core-variables";
+
+// Import core styles
+@import "core/core";
+
+// Import UI Kits
+@import "uikits/uikits";
+
+// Custom styles
+@import "custom";
+
+@import "base/index"; // Base Styles
+@import "components/index"; // Components Styles

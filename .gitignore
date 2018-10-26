@@ -1,0 +1,38 @@
+logs
+*.logs
+yarn-error.log
+
+# System Files
+.DS_Store
+._.DS_Store
+Thumbs.db
+
+# Dependency directory
+node_modules
+bower_components/
+
+# Linter
+linters/
+
+# testing
+coverage
+.nyc_output
+
+# compiled output
+/build
+/Release
+/dist
+/dll
+.tmp
+documentation/*.html
+
+# env files
+.env
+.env.prod
+.env.staging
+.env.development
+.env.production
+.env.test
+
+# Editor configuration
+.vscode

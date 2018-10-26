@@ -1,0 +1,32 @@
+
+.team-card-header {
+  background-color: $primary-blue-color;
+  border: none;
+  h3 {
+    color: $white;
+    font-size: 15px;
+  }
+}
+.team-card-body {
+  background-color: $secondary-blue-color;
+  .title {
+    color: $white;
+    font-size: 14px;
+  }
+}
+.team-card-footer {
+  border: none;
+  text-align: center;
+  background-color: $primary-blue-color;
+  button {
+    background: $white;
+    color: $primary-black-color;
+    &:hover, &:active, &:focus, &:visited {
+      background: $white;
+      color: $primary-black-color;
+    }
+  }
+}
+.margin-t-20 {
+  margin-top: 20px;
+}

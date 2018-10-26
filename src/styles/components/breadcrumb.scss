@@ -1,0 +1,9 @@
+a.breadcrumb-item {
+  &.active {
+    color: $breadcrumb-color;
+  }
+}
+
+b.breadcrumb-item {
+  color: $breadcrumb-active-color;
+}

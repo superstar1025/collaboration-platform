@@ -1,0 +1,10 @@
+.input-group-search {
+  display: inline-flex;
+  .btn {
+    color: white;
+    &:hover {
+      color: white;
+      background-color: #1b8eb7;
+    }
+  }
+}
